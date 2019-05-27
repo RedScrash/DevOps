@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DevOps';
+  myVar = 'Hola mundo';
+  saludo = 'Hola Omar, como estas?';
 }

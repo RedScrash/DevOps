@@ -19,17 +19,14 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  it(`should have as title 'DevOps'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('DevOps');
+  it('El valor de la variable myVar ser igual a',()=>{
+    const appComponent = new AppComponent();
+    const myVar = appComponent.myVar;
+    expect(myVar).toEqual('Hola mundo');
   });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to DevOps!');
+  it('El valor de la variable myVar ser igual a',()=>{
+    const appComponent = new AppComponent();
+    const value = appComponent.saludo;
+    expect(value).toContain('Omar');
   });
 });
