@@ -9,4 +9,12 @@ export class AppComponent {
   title = 'DevOps';
   myVar = 'Hola mundo';
   saludo = 'Hola Omar, como estas?';
+
+  esPar(myNumber: number):boolean {
+    if (myNumber % 2 == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
