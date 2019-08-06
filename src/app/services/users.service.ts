@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsersService {
-  private myUrl: string = 'https://api.github.com';
+  private myUrl = 'https://api.github.com';
 
   constructor(private http: HttpClient) { }
 
-  getAll():Observable<User[]>{
+  getAll(): Observable<User[]> {
     return this.http.get<User[]>(`${this.myUrl}/users`);
   }
 }

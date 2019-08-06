@@ -2,11 +2,11 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { UsersService } from './services/users.service';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { User } from './models/user';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-describe('AppComponent', () => {
+fdescribe('AppComponent', () => {
   let appComponent;
   let usersService;
   // Se ejecuta una sola vez antes de ejecutar cualquier prueba
@@ -23,9 +23,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      providers: [UsersService]
+      providers: [UsersService, AppComponent]
     }).compileComponents();
-    appComponent = new AppComponent();
+    appComponent = TestBed.get(AppComponent);
     console.log('Se ejecuta antes de cada prueba "it"');
     usersService = TestBed.get(UsersService);
   }));
@@ -56,45 +56,45 @@ describe('AppComponent', () => {
     console.log('Se ejecuta después de cada prueba "it"');
   });
   it ('Debe llamar al servicio UsersService y el método getAll()', () => {
-    let mockUser: User[] = [
+    const mockUser: User[] = [
       {
-        login:	"mojombo",
+        login:	'mojombo',
         id:	1,
-        node_id:	"MDQ6VXNlcjE=",
-        avatar_url:	"https://avatars0.githubusercontent.com/u/1?v=4",
-        gravatar_id:	"",
-        url:	"https://api.github.com/users/mojombo",
-        html_url:	"https://github.com/mojombo",
-        followers_url:	"https://api.github.com/users/mojombo/followers",
-        following_url:	"https://api.github.com/u…o/following{/other_user}",
-        gists_url:	"https://api.github.com/u…/mojombo/gists{/gist_id}",
-        starred_url	:"https://api.github.com/u…o/starred{/owner}{/repo}",
-        subscriptions_url:	"https://api.github.com/users/mojombo/subscriptions",
-        organizations_url:	"https://api.github.com/users/mojombo/orgs",
-        repos_url:	"https://api.github.com/users/mojombo/repos",
-        events_url:	"https://api.github.com/u…mojombo/events{/privacy}",
-        received_events_url:	"https://api.github.com/u…/mojombo/received_events",
-        type:	"User",
+        node_id:	'MDQ6VXNlcjE=',
+        avatar_url:	'https://avatars0.githubusercontent.com/u/1?v=4',
+        gravatar_id:	'',
+        url:	'https://api.github.com/users/mojombo',
+        html_url:	'https://github.com/mojombo',
+        followers_url:	'https://api.github.com/users/mojombo/followers',
+        following_url:	'https://api.github.com/u…o/following{/other_user}',
+        gists_url:	'https://api.github.com/u…/mojombo/gists{/gist_id}',
+        starred_url	:'https://api.github.com/u…o/starred{/owner}{/repo}',
+        subscriptions_url:	'https://api.github.com/users/mojombo/subscriptions',
+        organizations_url:	'https://api.github.com/users/mojombo/orgs',
+        repos_url:	'https://api.github.com/users/mojombo/repos',
+        events_url:	'https://api.github.com/u…mojombo/events{/privacy}',
+        received_events_url:	'https://api.github.com/u…/mojombo/received_events',
+        type:	'User',
         site_admin:	false
       },
       {
-        login:	"defunkt",
+        login:	'defunkt',
         id:	2,
-        node_id	:"MDQ6VXNlcjI=",
-        avatar_url:	"https://avatars0.githubusercontent.com/u/2?v=4",
-        gravatar_id:	"",
-        url:	"https://api.github.com/users/defunkt",
-        html_url:	"https://github.com/defunkt",
-        followers_url:	"https://api.github.com/users/defunkt/followers",
-        following_url:	"https://api.github.com/users/defunkt/following{/other_user}",
-        gists_url:	"https://api.github.com/users/defunkt/gists{/gist_id}",
-        starred_url:	"https://api.github.com/users/defunkt/starred{/owner}{/repo}",
-        subscriptions_url:	"https://api.github.com/users/defunkt/subscriptions",
-        organizations_url:	"https://api.github.com/users/defunkt/orgs",
-        repos_url:	"https://api.github.com/users/defunkt/repos",
-        events_url:	"https://api.github.com/users/defunkt/events{/privacy}",
-        received_events_url:	"https://api.github.com/users/defunkt/received_events",
-        type:	"User",
+        node_id	:'MDQ6VXNlcjI=',
+        avatar_url:	'https://avatars0.githubusercontent.com/u/2?v=4',
+        gravatar_id:	'',
+        url:	'https://api.github.com/users/defunkt',
+        html_url:	'https://github.com/defunkt',
+        followers_url:	'https://api.github.com/users/defunkt/followers',
+        following_url:	'https://api.github.com/users/defunkt/following{/other_user}',
+        gists_url:	'https://api.github.com/users/defunkt/gists{/gist_id}',
+        starred_url:	'https://api.github.com/users/defunkt/starred{/owner}{/repo}',
+        subscriptions_url:	'https://api.github.com/users/defunkt/subscriptions',
+        organizations_url:	'https://api.github.com/users/defunkt/orgs',
+        repos_url:	'https://api.github.com/users/defunkt/repos',
+        events_url:	'https://api.github.com/users/defunkt/events{/privacy}',
+        received_events_url:	'https://api.github.com/users/defunkt/received_events',
+        type:	'User',
         site_admin:	false
       }
     ];

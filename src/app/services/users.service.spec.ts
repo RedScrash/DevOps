@@ -23,7 +23,7 @@ describe('UsersService', () => {
     }
   );
 
-  afterEach(()=>{
+  afterEach(() => {
     // Verificamos que no hayan solicitudes pendientes
     httpMock.verify();
   });
@@ -33,11 +33,11 @@ describe('UsersService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('Debe retornar un observable con el array de usuarios',()=>{
+  it('Debe retornar un observable con el array de usuarios', () => {
     // Hace el instanciamiento de la clase, cumple la misma fucnión que el new UsersService()
-    const usersService:UsersService = TestBed.get(UsersService);
+    const usersService: UsersService = TestBed.get(UsersService);
     // const usersService = new UsersService();
-    let mockUser: User[] = [
+    const mockUser: User[] = [
       {
         login:	"mojombo",
         id:	1,
@@ -49,7 +49,7 @@ describe('UsersService', () => {
         followers_url:	"https://api.github.com/users/mojombo/followers",
         following_url:	"https://api.github.com/u…o/following{/other_user}",
         gists_url:	"https://api.github.com/u…/mojombo/gists{/gist_id}",
-        starred_url	:"https://api.github.com/u…o/starred{/owner}{/repo}",
+        starred_url	: "https://api.github.com/u…o/starred{/owner}{/repo}",
         subscriptions_url:	"https://api.github.com/users/mojombo/subscriptions",
         organizations_url:	"https://api.github.com/users/mojombo/orgs",
         repos_url:	"https://api.github.com/users/mojombo/repos",
@@ -61,7 +61,7 @@ describe('UsersService', () => {
       {
         login:	"defunkt",
         id:	2,
-        node_id	:"MDQ6VXNlcjI=",
+        node_id	: "MDQ6VXNlcjI=",
         avatar_url:	"https://avatars0.githubusercontent.com/u/2?v=4",
         gravatar_id:	"",
         url:	"https://api.github.com/users/defunkt",
@@ -80,7 +80,7 @@ describe('UsersService', () => {
       }
     ];
 
-    usersService.getAll().subscribe((users)=>{
+    usersService.getAll().subscribe((users) => {
       // Validamos que la longitud del array se iguala 2
       expect(users.length).toEqual(2);
       // Validamos que la respuesta del servicio sea igual a la  variable mockUser
